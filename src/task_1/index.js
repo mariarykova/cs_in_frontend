@@ -1,5 +1,8 @@
 "use strict";
 function createBitGetter(array) {
+    if (!(array instanceof Uint8Array)) {
+        throw new TypeError("Expected a Uint8Array");
+    }
     const get = (byteIndex, bitIndex) => {
         const byte = array[byteIndex];
         const flag = 1 << bitIndex;
