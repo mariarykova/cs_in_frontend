@@ -20,11 +20,12 @@ const loadImage = (
       const image = new Image();
 
       image.addEventListener("load", () => {
-        canvas.width = 300;
-        canvas.height = 400;
+        canvas.width = image.width;
+        canvas.height = image.height;
 
         const context = canvas.getContext("2d");
-        context?.drawImage(image, 0, 0);
+        context?.drawImage(image, 0, 0, canvas.width, canvas.height);
+        //context?.getImageData(0, 0, canvas.width, canvas.height);
 
         resolve(image);
       });
